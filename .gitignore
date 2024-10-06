@@ -1,0 +1,9 @@
+# Godot 4+ specific ignores
+.godot/
+exports/
+scenes/*.tmp
+addons/
+*.tmp
+.vscode
+# Music Maker Project Files
+
