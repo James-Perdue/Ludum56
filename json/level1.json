@@ -1,0 +1,11 @@
+{
+  "waves": [
+    {
+      "enemy_type": "ANT",
+      "total_size": 14,
+      "group_size": 2,
+      "initial_delay": 1,
+      "delay": 0.5
+    }
+  ]
+}

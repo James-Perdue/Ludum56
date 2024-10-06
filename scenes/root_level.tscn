@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://d0x034flgxrsr"]
+[gd_scene load_steps=3 format=3 uid="uid://d0x034flgxrsr"]
 
+[ext_resource type="Script" path="res://scripts/level.gd" id="1_0lg5y"]
 [ext_resource type="PackedScene" uid="uid://82fsdl1m80ck" path="res://scenes/spawner.tscn" id="2_tf2in"]
 
 [node name="RootLevel" type="Node2D"]
+script = ExtResource("1_0lg5y")
 
 [node name="Spawner" parent="." instance=ExtResource("2_tf2in")]
 position = Vector2(231, 822)

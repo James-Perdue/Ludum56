@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Node2D
 class_name Enemy
 
 @export var speed: float = 100.0
@@ -7,20 +7,22 @@ class_name Enemy
 
 @onready var enemy_sprite : Sprite2D = $Sprite2D
 
+signal died
+
 var health: int
 
 func _ready():
-	$Sprite2D.texture = enemy_texture
-	health = max_health
+    $Sprite2D.texture = enemy_texture
+    health = max_health
 
-func _physics_process(_delta: float) -> void:
-	velocity = Vector2.UP * speed
-	move_and_slide()
-
+func _process(delta: float) -> void:
+    position.y -= speed * delta
+    
 func take_damage(amount: int):
-	health -= amount
-	if health <= 0:
-		destroy()
+    health -= amount
+    if health <= 0:
+        died.emit()
+        destroy()
 
 func destroy():
-	queue_free()
+    queue_free()

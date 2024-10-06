@@ -3,15 +3,18 @@
 [ext_resource type="Script" path="res://scripts/ant.gd" id="1_kttca"]
 [ext_resource type="Texture2D" uid="uid://dr65udte5175c" path="res://icon.svg" id="2_nhbn8"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_cjwxh"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2xtq"]
 size = Vector2(120, 120)
 
-[node name="Ant" type="CharacterBody2D"]
-scale = Vector2(0.25, 0.25)
+[node name="Ant" type="Node2D" groups=["enemies"]]
 script = ExtResource("1_kttca")
 enemy_texture = ExtResource("2_nhbn8")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_cjwxh")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.25, 0.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_x2xtq")
