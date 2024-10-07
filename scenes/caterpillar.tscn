@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://bgjyeb0ps61le"]
+
+[ext_resource type="Script" path="res://scripts/ant.gd" id="1_17asv"]
+[ext_resource type="SpriteFrames" uid="uid://dvjnkbek0qpnj" path="res://art/caterpillar.tres" id="2_2mfxe"]
+[ext_resource type="SpriteFrames" uid="uid://dfa7iqnqrlf3t" path="res://art/AntFrames.tres" id="2_qpb5x"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x2xtq"]
+size = Vector2(120, 120)
+
+[node name="Caterpillar" type="PathFollow2D" groups=["enemies"]]
+z_index = 2
+scale = Vector2(1.6, 1.6)
+script = ExtResource("1_17asv")
+speed = 5.0
+enemy_frames = ExtResource("2_2mfxe")
+reward = 5
+damage = 25
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.25, 0.25)
+
+[node name="Area2D" type="Area2D" parent="."]
+scale = Vector2(0.25, 0.25)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_x2xtq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("2_qpb5x")

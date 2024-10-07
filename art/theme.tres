@@ -1,0 +1,7 @@
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://dlkb0dn6frj84"]
+
+[ext_resource type="FontFile" uid="uid://bof1bjc23ba2x" path="res://art/Roboto-Regular.ttf" id="1_jgkb0"]
+
+[resource]
+Control/colors/a = Color(0, 0, 0, 1)
+Control/fonts/a = ExtResource("1_jgkb0")

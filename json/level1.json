@@ -2,10 +2,53 @@
   "waves": [
     {
       "enemy_type": "ANT",
-      "total_size": 14,
+      "total_size": 10,
       "group_size": 2,
       "initial_delay": 1,
-      "delay": 0.5
+      "delay": 0.5,
+      "difficulty": 1
+    },
+    {
+        "enemy_type": "ANT",
+        "total_size": 2,
+        "group_size": 1,
+        "initial_delay": 2,
+        "delay": 1,
+        "hue": "Red",
+        "difficulty": 2
+    },
+    {
+        "enemy_type": "ANT",
+        "total_size": 25,
+        "group_size": 3,
+        "initial_delay": 0.5,
+        "delay": 0.4,
+        "difficulty": 1
+    },
+    {
+        "enemy_type": "ANT",
+        "total_size": 30,
+        "group_size": 3,
+        "initial_delay": 1,
+        "delay": 0.4,
+        "difficulty": 1
+    },
+    {
+        "enemy_type": "ANT",
+        "total_size": 35,
+        "group_size": 4,
+        "initial_delay": 1,
+        "delay": 0.3,
+        "difficulty": 1
+    },
+    {
+        "enemy_type": "ANT",
+        "total_size": 40,
+        "group_size": 4,
+        "initial_delay": 1,
+        "delay": 0.3,
+        "hue": "Red",
+        "difficulty": 2
     }
   ]
 }

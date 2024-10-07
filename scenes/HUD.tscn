@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=3 uid="uid://1gwp00vvwc6r"]
+
+[ext_resource type="Theme" uid="uid://dlkb0dn6frj84" path="res://art/theme.tres" id="1_qrt4r"]
+[ext_resource type="Texture2D" uid="uid://cvjqfktxlhm71" path="res://art/HeartIcon.png" id="1_vwtxp"]
+[ext_resource type="Texture2D" uid="uid://ejnr53fo3siy" path="res://art/AntSkull.png" id="2_6m72k"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="2_rvsfj"]
+[ext_resource type="Texture2D" uid="uid://ew3lgotnduvl" path="res://art/MoneyIcon.png" id="3_jwb7h"]
+[ext_resource type="FontFile" uid="uid://bof1bjc23ba2x" path="res://art/Roboto-Regular.ttf" id="3_pn58l"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_qrt4r")
+script = ExtResource("2_rvsfj")
+
+[node name="Money" type="TextureRect" parent="."]
+offset_left = 32.0
+offset_top = 728.0
+offset_right = 160.0
+offset_bottom = 856.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_jwb7h")
+
+[node name="MoneyLabel" type="Label" parent="Money"]
+layout_mode = 0
+offset_left = 127.5
+offset_top = 40.0
+offset_right = 237.5
+offset_bottom = 128.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_pn58l")
+theme_override_font_sizes/font_size = 50
+text = "100
+"
+
+[node name="Health" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 8.0
+offset_right = 152.0
+offset_bottom = 136.0
+scale = Vector2(0.4, 0.4)
+texture = ExtResource("1_vwtxp")
+
+[node name="HealthLabel" type="Label" parent="Health"]
+layout_mode = 0
+offset_left = 127.5
+offset_top = 40.0
+offset_right = 237.5
+offset_bottom = 128.0
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_pn58l")
+theme_override_font_sizes/font_size = 64
+text = "100
+"
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 464.0
+offset_top = 8.0
+offset_right = 528.0
+offset_bottom = 72.0
+texture = ExtResource("2_6m72k")
+
+[node name="KillsLabel" type="Label" parent="TextureRect2"]
+offset_left = 56.0
+offset_top = 16.0
+offset_right = 166.0
+offset_bottom = 104.0
+scale = Vector2(0.4, 0.4)
+theme = ExtResource("1_qrt4r")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_pn58l")
+theme_override_font_sizes/font_size = 64
+text = "0
+"

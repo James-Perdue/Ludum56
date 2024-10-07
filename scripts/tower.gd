@@ -3,12 +3,14 @@ extends Node2D
 @export var radius: float = 200.0
 @export var shoot_interval: float = 0.5
 @export var damage: float = 10.0
+@export var cost: int = 1
 
 var target: Node2D = null
 var shoot_timer: float = 0.0
-var drawRange = true
+var drawRange = false
 
 @onready var detection_area: Area2D = $DetectionArea
+@onready var sprite: AnimatedSprite2D = $AnimatedSprite2D
 
 func _ready():
     # Set up the detection area
@@ -19,10 +21,10 @@ func _ready():
     # Connect the area entered and exited signals
     detection_area.connect("area_entered", Callable(self, "_on_area_entered"))
     detection_area.connect("area_exited", Callable(self, "_on_area_exited"))
-
+    
 func _process(delta):
     if target and is_instance_valid(target):
-        if not detection_area.overlaps_body(target):
+        if not detection_area.overlaps_area(target.get_node("Area2D")):
             set_target(null)
         else:
             shoot_timer += delta
@@ -42,6 +44,9 @@ func shoot():
     if target != null and is_instance_valid(target) and target.has_method("take_damage"):
         target.take_damage(damage)
         print("Tower shot at enemy, dealing ", damage, " damage")
+    sprite.play("fire", 10)
+    await sprite.animation_finished
+    sprite.stop()
 
 func _on_area_entered(area):
     if not target and area.get_parent().is_in_group("enemies"):
@@ -64,3 +69,7 @@ func get_new_target():
 func set_target(new_target):
     target = new_target
     #print("New target acquired: ", target.name if target else "None")
+
+func toggle_draw():
+    drawRange = not drawRange
+    queue_redraw()

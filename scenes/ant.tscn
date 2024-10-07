@@ -1,14 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://dspemwnuktuml"]
 
 [ext_resource type="Script" path="res://scripts/ant.gd" id="1_kttca"]
-[ext_resource type="Texture2D" uid="uid://dr65udte5175c" path="res://icon.svg" id="2_nhbn8"]
+[ext_resource type="SpriteFrames" uid="uid://dfa7iqnqrlf3t" path="res://art/AntFrames.tres" id="3_r3odv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x2xtq"]
 size = Vector2(120, 120)
 
-[node name="Ant" type="Node2D" groups=["enemies"]]
+[node name="Ant" type="PathFollow2D" groups=["enemies"]]
+z_index = 2
 script = ExtResource("1_kttca")
-enemy_texture = ExtResource("2_nhbn8")
+speed = 20.0
+max_health = 20
+enemy_frames = ExtResource("3_r3odv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
@@ -18,3 +21,6 @@ scale = Vector2(0.25, 0.25)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 shape = SubResource("RectangleShape2D_x2xtq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = ExtResource("3_r3odv")
